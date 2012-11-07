@@ -169,7 +169,8 @@ id UITextInputTraits_valueForKey(id self, SEL _cmd, NSString *key)
 		sharedInstance = [[DCIntrospect alloc] init];
 		sharedInstance.keyboardBindingsOn = YES;
 		sharedInstance.showStatusBarOverlay = ![UIApplication sharedApplication].statusBarHidden;
-		[self workaroundUITextInputTraitsPropertiesBug];
+        // Disabled workaround, this is causing issues, seeing infinite recursion loop again as in #33
+//		[self workaroundUITextInputTraitsPropertiesBug];
 	}
 #endif
 	return sharedInstance;
